@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>DAFTAR MAHASISWA</title>      
+    </h:head>
+    <style>
+        .btn {
+            background-color: #21C243;
+            border-radius: 30px;
+            padding: 12px;
+            letter-spacing: 1pt;
+        }
+        .header {
+            background-color: #292929;
+            padding-top: 17px;
+            padding-bottom: 7px;
+            border-radius: 10% 10% 0 0;
+        }
+        .edit {
+            background-color: #1830B6;
+            border-radius: 10px;
+            padding: 5px;
+            letter-spacing: 1pt;
+            color: white;
+        }
+        .delete {
+            color: white;
+            background-color: #DF2323;
+            border-radius: 10px;
+            padding: 5px;
+            letter-spacing: 1pt;
+        }
+    </style>
+    <h:body style="background-color: #03dac6;">
+        <center>
+            <div class="container-fluid header">
+            <h1 style="color: white">DAFTAR MAHASISWA</h1>
+            <p style="padding-bottom: 10px; color: white; font-size: 9pt; letter-spacing: 1pt;">Copyright . Kelompok5 Praktikum RSBK 2019</p>
+            </div><hr/>
+            <h:form>
+                <h:form>
+                    <p> Tambahkan Data Mahasiswa: </p>
+                    <h:commandButton class="btn" value="Tambahkan" action="Tambah.xhtml"></h:commandButton>
+                </h:form>
+            </h:form><br/>
+            <h:form>
+            <div style="background-color: #ffffffe0; width: fit-content; border-radius: 10px; padding: 10px;">
+                <h:dataTable value="#{mahasiswa.get_all_mahasiswa}" var="maha" width="800px">
+                <h:outputText value="#{mahasiswa.NAMA}"/>
+                <h:column>
+                    <f:facet name="header">N I M</f:facet><hr/>
+                  <center><h:outputText value="#{maha.NIM}"></h:outputText></center>
+                </h:column>
+                <h:column>
+                  <f:facet name="header">N A M A</f:facet><hr/>
+                  <center><h:outputText value="#{maha.NAMA}"></h:outputText></center>
+                </h:column>
+                <h:column>
+                  <f:facet name="header">P E N J U R U S A N</f:facet><hr/>
+                  <center><h:outputText value="#{maha.PENJURUSAN}"></h:outputText></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">E D I T</f:facet><hr/>
+                    <center><h:commandButton value="Edit" class="edit" onclick="return confirm('Apakah Anda yakin ingin mengubah data ini?')" action="#{mahasiswa.Edit_Mahasiswa}">
+                                <f:param name="action" value="#{maha.NIM}" />
+                            </h:commandButton></center>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">D E L E T E</f:facet><hr/>
+                    <center><h:commandButton value="Delete" class="delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" action="#{mahasiswa.Delete_Mahasiswa}">
+                                <f:param name="action" value="#{maha.NIM}" />
+                            </h:commandButton></center>
+                  </h:column>
+            </h:dataTable>
+            <br></br></div>
+            </h:form>
+        </center>
+    </h:body>
+</html>

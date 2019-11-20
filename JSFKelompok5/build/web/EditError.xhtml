@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>ERROR</title>
+</h:head>
+    <style>
+        .btn {
+            background-color: #48d063;
+            border-radius: 30px;
+            padding: 12px;
+            letter-spacing: 1pt;
+        }
+        .btn2 {
+            background-color: #e20000a8;
+            border-radius: 30px;
+            padding: 12px;
+            letter-spacing: 1pt;
+        }
+        .header {
+            background-color: #292929;
+            padding-top: 17px;
+            padding-bottom: 7px;
+            border-radius: 10% 10% 0 0;
+        }
+    </style>
+  <h:body style="background-color: #03dac6;">
+        <center>
+            <div class="container-fluid header">
+                <h1 style="color: white">EDIT DATA MAHASISWA</h1>
+                <p style="padding-bottom: 10px; color: white; font-size: 9pt; letter-spacing: 1pt;">Copyright . Kelompok5 Praktikum RSBK 2019</p>
+            </div><hr/>
+            <p style="color: red;"><strong>Data Penjurusan Gagal Tersimpan! Mohon cek kembali Penjurusannya</strong></p><br/>
+            <div style="background-color: #ffffffe0; width: fit-content; border-radius: 20px; padding: 17px;">
+                <h:form>
+                    <table>
+                    <tr>
+                       <td>NIM :</td>
+                       <td><h:inputText value="#{EditMahasiswa.NIM}" ></h:inputText></td>
+                    </tr>
+                    <tr>
+                       <td>Nama Mahasiswa :</td>
+                       <td><h:inputText value="#{EditMahasiswa.NAMA}" ></h:inputText></td>
+                    </tr>
+                    <tr>
+                       <td>Penjurusan :</td>
+                       <td><h:inputText value="#{EditMahasiswa.PENJURUSAN}"></h:inputText></td>
+                    </tr>
+                    </table><br/>
+                    <h:commandButton value="Update" class="btn" onclick="return confirm('Apakah data yang Anda ubah sudah benar?')" action="#{EditMahasiswa.Update_Mahasiswa}">
+                     <f:param name="Update_NIM" value="#{EditMahasiswa.NIM}" />
+                    </h:commandButton>
+                    <br></br>
+                <br></br>
+                </h:form>
+            <h:form>
+               <h:commandButton value="Kembali" class="btn2" action="index.xhtml"></h:commandButton>
+            </h:form>
+            </div>
+        </center>
+  </h:body>
+</html>
